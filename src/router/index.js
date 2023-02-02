@@ -1,27 +1,98 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'Login',
+    component: () => import('../views/LoginView/LoginIndex.vue')
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: '/staffHome',
+    name: 'StaffHome',
+    component: () => import('../views/StaffView/StaffHome.vue'),
+    children:[
+      {
+        path: '/personalCenter',
+        name: '个人中心',
+        component: () => import('../views/StaffView/PersonalCenter.vue')
+      },
+      {
+        path: '/companyAnnouncement',
+        name: '公司公告',
+        component: () => import('../views/StaffView/CompanyAnnouncement.vue')
+      },
+      {
+        path: '/myApplication',
+        name: '我的申请',
+        component: () => import('../views/StaffView/MyApplication.vue')
+      },
+      {
+        path: '/staffHelps',
+        name: '帮助与关于',
+        component: () => import('../views/StaffView/StaffHelps.vue')
+      },
+    ]
+  },
+  {
+    path: '/adminHome',
+    name: 'AdminHome',
+    component: () => import('../views/AdminView/AdminHome.vue'),
+    children:[
+      {
+        path: '/staffManage',
+        name: '员工管理',
+        component: () => import('../views/AdminView/StaffManage.vue')
+      },
+      {
+        path: '/routeManage',
+        name: '线路管理',
+        component: () => import('../views/AdminView/RouteManage.vue')
+      },
+      {
+        path: '/scheduleManage',
+        name: '班次管理',
+        component: () => import('../views/AdminView/ScheduleManage.vue')
+      },
+      {
+        path: '/announcementManage',
+        name: '公告管理',
+        component: () => import('../views/AdminView/AnnouncementManage.vue')
+      },
+      {
+        path: '/onlineApproval',
+        name: '在线审批',
+        component: () => import('../views/AdminView/OnlineApproval.vue')
+      },
+      {
+        path: '/adminHelps',
+        name: '帮助与关于',
+        component: () => import('../views/AdminView/AdminHelps.vue')
+      },
+      {
+        path: '/vehicleManage',
+        name: '车辆管理',
+        component: () => import('../views/AdminView/VehicleManage.vue')
+      },
+      {
+        path: '/stationManage',
+        name: '车站管理',
+        component: () => import('../views/AdminView/StationManage.vue')
+      },
+      {
+        path: '/adminHomePage',
+        name: '系统首页',
+        component: () => import('../views/AdminView/AdminHomePage.vue')
+      },
+    ]
   }
 ]
 
 const router = new VueRouter({
-  routes
+  routes,
+  //mode: "history"
 })
 
 export default router
