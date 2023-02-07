@@ -20,6 +20,11 @@ const routes = [
         component: () => import('../views/StaffView/PersonalCenter.vue')
       },
       {
+        path: '/mySchedule',
+        name: '我的排班',
+        component: () => import('../views/StaffView/MySchedule.vue')
+      },
+      {
         path: '/companyAnnouncement',
         name: '公司公告',
         component: () => import('../views/StaffView/CompanyAnnouncement.vue')
