@@ -27,6 +27,10 @@
               <i class="el-icon-s-cooperation"></i>
               <span slot="title">我的排班</span>
             </el-menu-item>
+            <el-menu-item index="/mySalary">
+              <i class="el-icon-s-finance"></i>
+              <span slot="title">我的薪酬</span>
+            </el-menu-item>
             <el-menu-item index="/companyAnnouncement">
               <i class="el-icon-message-solid"></i>
               <span slot="title">公司公告</span>

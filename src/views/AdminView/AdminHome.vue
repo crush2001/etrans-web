@@ -28,6 +28,10 @@
               <i class="el-icon-s-custom"></i>
               <span slot="title">员工管理</span>
             </el-menu-item>
+            <el-menu-item index="/salaryManage">
+              <i class="el-icon-s-data"></i>
+              <span slot="title">薪酬管理</span>
+            </el-menu-item>
             <el-menu-item index="/routeManage">
               <i class="el-icon-s-promotion"></i>
               <span slot="title">线路管理</span>
