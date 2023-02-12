@@ -6,7 +6,7 @@
         <div class="loginStaffInfo">
           {{ nowTime | updateTime }}
           <span>员工：{{ loginStaff }}</span>
-          <el-dropdown trigger="hover" class="hoverMenu" @command="handleCommanc">
+          <el-dropdown trigger="hover" class="hoverMenu" @command="handleCommand">
             <span>
               <i class="el-icon-setting"></i>
             </span>
@@ -84,7 +84,7 @@
         postRequest('/staff/logout');
         this.$router.replace('/');
       },
-      handleCommanc(command) {
+      handleCommand(command) {
         if (command == "exitLogin"){
           this.$confirm('将退出登录该账户, 是否继续?', '提示', {
             confirmButtonText: '确定',
