@@ -105,7 +105,7 @@
             <i class="el-icon-bank-card"></i>
             工资总额（月）
           </template>
-          {{ totalSalary }}
+          {{ totalSalary | numFilter }}
         </el-descriptions-item>
       </el-descriptions>
     </div>
@@ -141,6 +141,12 @@ export default {
   },
   mounted() {
     this.initMyLoginStaff();
+  },
+  filters:{
+    numFilter(value){
+      let realVal = parseFloat(value).toFixed(2);
+      return realVal;
+    }
   },
   methods:{
     initMyLoginStaff(){

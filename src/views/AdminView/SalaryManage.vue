@@ -163,6 +163,9 @@
               header-align="center"
               label="月工资总额"
               align="center">
+            <template slot-scope="scope">
+              {{ fun(scope.row.totalSalary) }}
+            </template>
           </el-table-column>
           <el-table-column
               fixed="right"
@@ -650,6 +653,10 @@ export default {
           this.staffOptions = resp;
         }
       })
+    },
+    fun(val){
+      let realVal = parseFloat(val).toFixed(2)
+      return realVal;
     }
   }
 }
