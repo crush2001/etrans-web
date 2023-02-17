@@ -307,7 +307,10 @@ export default {
         vehicleDriver:''
       },
       rules:{
-        vehiclePlateNumber:[{required:true,message:'车辆车牌号不能为空',trigger:'blur'}],
+        vehiclePlateNumber:[
+            {required:true,message:'车辆车牌号不能为空',trigger:'blur'},
+            {pattern:/^([京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}(([0-9]{5}[DF])|([DF]([A-HJ-NP-Z0-9])[0-9]{4})))|([京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-HJ-NP-Z0-9]{4}[A-HJ-NP-Z0-9挂学警港澳]{1})$/,message:'车牌号格式不正确',trigger:'blur'}
+        ],
         vehicleType:[{required:true,message:'车辆车型不能为空',trigger:'blur'}],
         vehicleCapacity:[{required:true,message:'车辆额定载客数不能为空',trigger:'blur'}],
         vehicleStatus:[{required:true,message:'车辆状态不能为空',trigger:'blur'}],
