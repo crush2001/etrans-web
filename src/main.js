@@ -11,6 +11,7 @@ import 'default-passive-events';
 import md5 from 'js-md5';
 import * as echarts from "echarts";
 //import {regionData,CodeToText} from 'element-china-area-data';
+import vRegion from 'v-region'
 import VueQuillEditor from 'vue-quill-editor';
 import 'quill/dist/quill.core.css';
 import 'quill/dist/quill.snow.css';
@@ -32,6 +33,7 @@ Vue.prototype.moment = moment
 Vue.prototype.$md5 = md5
 Vue.prototype.$echarts = echarts;
 Vue.use(VueQuillEditor);
+Vue.use(vRegion);
 
 Vue.filter('dateFormat', function (daraStr, pattern = 'YYYY年M月D日 HH:mm:ss') {
   return moment(daraStr).format(pattern);

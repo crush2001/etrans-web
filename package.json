@@ -17,6 +17,7 @@
     "js-md5": "^0.7.3",
     "moment": "^2.29.4",
     "save": "^2.9.0",
+    "v-region": "^2.3.0",
     "vue": "^2.6.14",
     "vue-quill-editor": "^3.0.6",
     "vue-router": "^3.5.1",
