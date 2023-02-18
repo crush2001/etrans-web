@@ -206,7 +206,7 @@
             </el-col>
             <el-col :span="12">
               <el-form-item label="工单内容：" prop="workorderContent">
-                <el-input type="textarea" v-model="applicationDetails.workorderContent" prefix-icon="el-icon-edit" placeholder="请输入工单内容" size="medium"></el-input>
+                <el-input autosize type="textarea" v-model="applicationDetails.workorderContent" prefix-icon="el-icon-edit" placeholder="请输入工单内容" size="medium"></el-input>
               </el-form-item>
             </el-col>
           </el-row>
@@ -252,7 +252,7 @@
             </el-col>
             <el-col :span="12">
               <el-form-item label="工单内容：" prop="workorderContent">
-                <el-input type="textarea" v-model="editApplicationDetails.workorderContent" prefix-icon="el-icon-edit" placeholder="请输入工单内容" size="medium"></el-input>
+                <el-input autosize type="textarea" v-model="editApplicationDetails.workorderContent" prefix-icon="el-icon-edit" placeholder="请输入工单内容" size="medium"></el-input>
               </el-form-item>
             </el-col>
           </el-row>
