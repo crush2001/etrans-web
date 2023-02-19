@@ -19,7 +19,21 @@
               <el-table-column prop="stationInfo" header-align="center" align="center" label="车站详情"></el-table-column>
               <el-table-column prop="stationStatus" header-align="center" align="center" label="车站状态">
                 <template slot-scope="scope">
-                  <el-tag type="success">{{scope.row.stationStatus}}</el-tag>
+                  <span v-if="scope.row.stationStatus === '正常'">
+                    <el-tag type="success">{{scope.row.stationStatus}}</el-tag>
+                  </span>
+                  <span v-else-if="scope.row.stationStatus === '停用'">
+                    <el-tag type="danger">{{scope.row.stationStatus}}</el-tag>
+                  </span>
+                  <span v-else-if="scope.row.stationStatus === '维修中'">
+                    <el-tag type="primary">{{scope.row.stationStatus}}</el-tag>
+                  </span>
+                  <span v-else-if="scope.row.stationStatus === '建设中'">
+                    <el-tag type="info">{{scope.row.stationStatus}}</el-tag>
+                  </span>
+                  <span v-else-if="scope.row.stationStatus === '日常维护中'">
+                    <el-tag type="warning">{{scope.row.stationStatus}}</el-tag>
+                  </span>
                 </template>
               </el-table-column>
               <el-table-column label="操作" header-align="center" align="center" fixed="right" width="100px" style="padding: 5px">
@@ -69,7 +83,21 @@
               width="200"
               label="车站状态">
             <template slot-scope="scope">
-              <el-tag type="success">{{scope.row.stationStatus}}</el-tag>
+              <span v-if="scope.row.stationStatus === '正常'">
+                <el-tag type="success">{{scope.row.stationStatus}}</el-tag>
+              </span>
+              <span v-else-if="scope.row.stationStatus === '停用'">
+                <el-tag type="danger">{{scope.row.stationStatus}}</el-tag>
+              </span>
+              <span v-else-if="scope.row.stationStatus === '维修中'">
+                <el-tag type="primary">{{scope.row.stationStatus}}</el-tag>
+              </span>
+              <span v-else-if="scope.row.stationStatus === '建设中'">
+                <el-tag type="info">{{scope.row.stationStatus}}</el-tag>
+              </span>
+              <span v-else-if="scope.row.stationStatus === '日常维护中'">
+                <el-tag type="warning">{{scope.row.stationStatus}}</el-tag>
+              </span>
             </template>
           </el-table-column>
           <el-table-column

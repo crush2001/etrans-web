@@ -26,7 +26,19 @@
                   <el-tag type="success" effect="dark">{{scope.row.vehicleCapacity}}人</el-tag>
                 </template>
               </el-table-column>
-              <el-table-column prop="vehicleStatus" header-align="center" align="center" label="车辆状态"></el-table-column>
+              <el-table-column prop="vehicleStatus" header-align="center" align="center" label="车辆状态">
+                <template slot-scope="scope">
+                  <span v-if="scope.row.vehicleStatus === '正常'">
+                    <el-tag effect="plain" type="success">{{scope.row.vehicleStatus}}</el-tag>
+                  </span>
+                  <span v-else-if="scope.row.vehicleStatus === '故障'">
+                    <el-tag effect="plain" type="danger">{{scope.row.vehicleStatus}}</el-tag>
+                  </span>
+                  <span v-else-if="scope.row.vehicleStatus === '检修'">
+                    <el-tag effect="plain" type="info">{{scope.row.vehicleStatus}}</el-tag>
+                  </span>
+                </template>
+              </el-table-column>
               <el-table-column prop="vehicleRoute" header-align="center" align="center" label="车辆所属线路">
                 <template slot-scope="scope">
                   <el-tag type="info" effect="dark">{{scope.row.vehicleRoute}}</el-tag>
@@ -91,6 +103,17 @@
               header-align="center"
               align="center"
               label="车辆状态">
+            <template slot-scope="scope">
+              <span v-if="scope.row.vehicleStatus === '正常'">
+                <el-tag effect="plain" type="success">{{scope.row.vehicleStatus}}</el-tag>
+              </span>
+              <span v-else-if="scope.row.vehicleStatus === '故障'">
+                <el-tag effect="plain" type="danger">{{scope.row.vehicleStatus}}</el-tag>
+              </span>
+              <span v-else-if="scope.row.vehicleStatus === '检修'">
+                <el-tag effect="plain" type="info">{{scope.row.vehicleStatus}}</el-tag>
+              </span>
+            </template>
           </el-table-column>
           <el-table-column
               prop="vehicleRoute"

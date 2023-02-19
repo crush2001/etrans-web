@@ -35,6 +35,11 @@ const routes = [
         component: () => import('../views/StaffView/CompanyAnnouncement.vue')
       },
       {
+        path: '/companyMeeting',
+        name: '公司会议',
+        component: () => import('../views/StaffView/CompanyMeeting.vue')
+      },
+      {
         path: '/myApplication',
         name: '我的申请',
         component: () => import('../views/StaffView/MyApplication.vue')
@@ -100,6 +105,11 @@ const routes = [
         path: '/salaryManage',
         name: '薪酬管理',
         component: () => import('../views/AdminView/SalaryManage.vue')
+      },
+      {
+        path: '/meetingManage',
+        name: '会议管理',
+        component: () => import('../views/AdminView/MeetingManage.vue')
       }
     ]
   }

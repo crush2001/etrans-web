@@ -16,7 +16,22 @@
             员工姓名：<el-tag>{{ loginStaffDetails.staffTrueName }}</el-tag>
           </div>
           <div style="margin-bottom: 8px">
-            员工职位：<el-tag>{{ loginStaffDetails.staffPosition }}</el-tag>
+            员工职位：
+            <span v-if="loginStaffDetails.staffPosition === '司机'">
+              <el-tag effect="plain" type="success">{{ loginStaffDetails.staffPosition }}</el-tag>
+            </span>
+            <span v-else-if="loginStaffDetails.staffPosition === '车队副队长'">
+              <el-tag effect="plain" type="primary">{{ loginStaffDetails.staffPosition }}</el-tag>
+            </span>
+            <span v-else-if="loginStaffDetails.staffPosition === '车队队长'">
+              <el-tag effect="plain" type="info">{{ loginStaffDetails.staffPosition }}</el-tag>
+            </span>
+            <span v-else-if="loginStaffDetails.staffPosition === '副主管'">
+              <el-tag effect="plain" type="warning">{{ loginStaffDetails.staffPosition }}</el-tag>
+            </span>
+            <span v-else-if="loginStaffDetails.staffPosition === '主管'">
+              <el-tag effect="plain" type="danger">{{ loginStaffDetails.staffPosition }}</el-tag>
+            </span>
           </div>
           <div style="margin-bottom: 8px">
             员工手机号：<el-tag>{{ loginStaffDetails.staffPhoneNumber }}</el-tag>
@@ -25,7 +40,13 @@
             员工身份证号：<el-tag>{{ loginStaffDetails.staffIdNumber }}</el-tag>
           </div>
           <div style="margin-bottom: 8px">
-            员工性别：<el-tag>{{ loginStaffDetails.staffGender === true ? '男' : '女' }}</el-tag>
+            员工性别：
+            <span v-if="loginStaffDetails.staffGender === true">
+              <el-tag effect="dark" type="primary">男</el-tag>
+            </span>
+            <span v-else-if="loginStaffDetails.staffGender === false">
+              <el-tag effect="dark" type="warning">女</el-tag>
+            </span>
           </div>
           <div style="margin-bottom: 8px">
             员工出生日期：<el-tag>{{ loginStaffDetails.staffBirthday | dateFormat("YYYY年M月D日") }}</el-tag>
@@ -37,7 +58,16 @@
             员工入职时间：<el-tag>{{ loginStaffDetails.staffJoinDate | dateFormat("YYYY年M月D日 HH:mm:ss") }}</el-tag>
           </div>
           <div style="margin-bottom: 8px">
-            员工当前状态：<el-tag type="primary" effect="dark">{{ loginStaffDetails.staffStatus }}</el-tag>
+            员工当前状态：
+            <span v-if="loginStaffDetails.staffStatus === '在职'">
+              <el-tag type="success" effect="dark">{{ loginStaffDetails.staffStatus }}</el-tag>
+            </span>
+            <span v-else-if="loginStaffDetails.staffStatus === '空闲'">
+              <el-tag type="info" effect="dark">{{ loginStaffDetails.staffStatus }}</el-tag>
+            </span>
+            <span v-else-if="loginStaffDetails.staffStatus === '休假'">
+              <el-tag type="danger" effect="dark">{{ loginStaffDetails.staffStatus }}</el-tag>
+            </span>
           </div>
           <div style="display: flex; justify-content: space-around; margin-top: 15px;">
             <el-button @click="displayEditMenu" type="primary">修改信息</el-button>
@@ -84,6 +114,17 @@
                   header-align="center"
                   align="center"
                   label="车辆状态">
+                <template slot-scope="scope">
+                  <span v-if="scope.row.vehicleStatus === '正常'">
+                    <el-tag effect="plain" type="success">{{scope.row.vehicleStatus}}</el-tag>
+                  </span>
+                  <span v-else-if="scope.row.vehicleStatus === '故障'">
+                    <el-tag effect="plain" type="danger">{{scope.row.vehicleStatus}}</el-tag>
+                  </span>
+                  <span v-else-if="scope.row.vehicleStatus === '检修'">
+                    <el-tag effect="plain" type="info">{{scope.row.vehicleStatus}}</el-tag>
+                  </span>
+                </template>
               </el-table-column>
               <el-table-column
                   prop="vehicleRoute"

@@ -19,12 +19,35 @@
               <el-table-column prop="staffTrueName" label="姓名" header-align="center" align="center"></el-table-column>
               <el-table-column prop="staffPosition" label="职位" header-align="center" align="center">
                 <template slot-scope="scope">
-                  <el-tag type="success">{{scope.row.staffPosition}}</el-tag>
+                  <span v-if="scope.row.staffPosition === '司机'">
+                    <el-tag type="success">{{scope.row.staffPosition}}</el-tag>
+                  </span>
+                  <span v-else-if="scope.row.staffPosition === '车队副队长'">
+                    <el-tag type="primary">{{scope.row.staffPosition}}</el-tag>
+                  </span>
+                  <span v-else-if="scope.row.staffPosition === '车队队长'">
+                    <el-tag type="info">{{scope.row.staffPosition}}</el-tag>
+                  </span>
+                  <span v-else-if="scope.row.staffPosition === '副主管'">
+                    <el-tag type="warning">{{scope.row.staffPosition}}</el-tag>
+                  </span>
+                  <span v-else-if="scope.row.staffPosition === '主管'">
+                    <el-tag type="danger">{{scope.row.staffPosition}}</el-tag>
+                  </span>
                 </template>
               </el-table-column>
               <el-table-column prop="staffPhoneNumber" label="手机号" header-align="center" align="center"></el-table-column>
               <el-table-column prop="staffIdNumber" label="身份证号" header-align="center" align="center"></el-table-column>
-              <el-table-column prop="staffGender" label="性别" header-align="center" align="center" :formatter="genderFormatter"></el-table-column>
+              <el-table-column prop="staffGender" label="性别" header-align="center" align="center" :formatter="genderFormatter">
+                <template slot-scope="scope">
+                  <span v-if="scope.row.staffGender === true">
+                    <el-tag effect="dark" type="primary">男</el-tag>
+                  </span>
+                  <span v-else-if="scope.row.staffGender === false">
+                    <el-tag effect="dark" type="warning">女</el-tag>
+                  </span>
+                </template>
+              </el-table-column>
               <el-table-column prop="staffBirthday" label="出生日期" header-align="center" align="center">
                 <template slot-scope="scope">{{scope.row.staffBirthday | dateFormat("YYYY年M月D日")}}</template>
               </el-table-column>
@@ -32,7 +55,19 @@
               <el-table-column prop="staffJoinDate" label="入职时间" header-align="center" align="center">
                 <template slot-scope="scope">{{scope.row.staffJoinDate | dateFormat("YYYY年M月D日 HH:mm:ss")}}</template>
               </el-table-column>
-              <el-table-column prop="staffStatus" label="当前状态" header-align="center" align="center"></el-table-column>
+              <el-table-column prop="staffStatus" label="当前状态" header-align="center" align="center">
+                <template slot-scope="scope">
+                  <span v-if="scope.row.staffStatus === '在职'">
+                    <el-tag effect="dark" type="success">{{scope.row.staffStatus}}</el-tag>
+                  </span>
+                  <span v-else-if="scope.row.staffStatus === '空闲'">
+                    <el-tag effect="dark" type="info">{{scope.row.staffStatus}}</el-tag>
+                  </span>
+                  <span v-else-if="scope.row.staffStatus === '休假'">
+                    <el-tag effect="dark" type="danger">{{scope.row.staffStatus}}</el-tag>
+                  </span>
+                </template>
+              </el-table-column>
               <el-table-column label="操作" header-align="center" align="center" fixed="right" width="100px" style="padding: 5px">
                 <template slot-scope="scope">
                   <el-button type="info" size="mini" icon="el-icon-edit" @click="showEditMenu(scope.row)">修改</el-button>
@@ -81,7 +116,21 @@
               label="职位"
               width="110">
             <template slot-scope="scope">
-              <el-tag type="success">{{scope.row.staffPosition}}</el-tag>
+              <span v-if="scope.row.staffPosition === '司机'">
+                <el-tag type="success">{{scope.row.staffPosition}}</el-tag>
+              </span>
+              <span v-else-if="scope.row.staffPosition === '车队副队长'">
+                <el-tag type="primary">{{scope.row.staffPosition}}</el-tag>
+              </span>
+              <span v-else-if="scope.row.staffPosition === '车队队长'">
+                <el-tag type="info">{{scope.row.staffPosition}}</el-tag>
+              </span>
+              <span v-else-if="scope.row.staffPosition === '副主管'">
+                <el-tag type="warning">{{scope.row.staffPosition}}</el-tag>
+              </span>
+              <span v-else-if="scope.row.staffPosition === '主管'">
+                <el-tag type="danger">{{scope.row.staffPosition}}</el-tag>
+              </span>
             </template>
           </el-table-column>
           <el-table-column
@@ -105,6 +154,14 @@
               label="性别"
               :formatter="genderFormatter"
               width="80">
+            <template slot-scope="scope">
+              <span v-if="scope.row.staffGender === true">
+                <el-tag effect="dark" type="primary">男</el-tag>
+              </span>
+              <span v-else-if="scope.row.staffGender === false">
+                <el-tag effect="dark" type="warning">女</el-tag>
+              </span>
+            </template>
           </el-table-column>
           <el-table-column
               prop="staffBirthday"
@@ -135,6 +192,17 @@
               align="center"
               label="当前状态"
               width="120">
+            <template slot-scope="scope">
+              <span v-if="scope.row.staffStatus === '在职'">
+                <el-tag effect="dark" type="success">{{scope.row.staffStatus}}</el-tag>
+              </span>
+              <span v-else-if="scope.row.staffStatus === '空闲'">
+                <el-tag effect="dark" type="info">{{scope.row.staffStatus}}</el-tag>
+              </span>
+              <span v-else-if="scope.row.staffStatus === '休假'">
+                <el-tag effect="dark" type="danger">{{scope.row.staffStatus}}</el-tag>
+              </span>
+            </template>
           </el-table-column>
           <el-table-column
               fixed="right"

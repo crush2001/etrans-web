@@ -55,6 +55,10 @@
               <i class="el-icon-message-solid"></i>
               <span slot="title">公告管理</span>
             </el-menu-item>
+            <el-menu-item index="/meetingManage">
+              <i class="el-icon-s-comment"></i>
+              <span slot="title">会议管理</span>
+            </el-menu-item>
             <el-menu-item index="/onlineApproval">
               <i class="el-icon-s-check"></i>
               <span slot="title">在线审批</span>
