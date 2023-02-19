@@ -35,9 +35,9 @@ const routes = [
         component: () => import('../views/StaffView/CompanyAnnouncement.vue')
       },
       {
-        path: '/companyMeeting',
-        name: '公司会议',
-        component: () => import('../views/StaffView/CompanyMeeting.vue')
+        path: '/myMeeting',
+        name: '我的会议',
+        component: () => import('../views/StaffView/MyMeeting.vue')
       },
       {
         path: '/myApplication',

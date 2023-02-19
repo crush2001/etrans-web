@@ -35,9 +35,9 @@
               <i class="el-icon-message-solid"></i>
               <span slot="title">公司公告</span>
             </el-menu-item>
-            <el-menu-item index="/companyMeeting">
+            <el-menu-item index="/myMeeting">
               <i class="el-icon-s-comment"></i>
-              <span slot="title">公司会议</span>
+              <span slot="title">我的会议</span>
             </el-menu-item>
             <el-menu-item index="/myApplication">
               <i class="el-icon-s-order"></i>

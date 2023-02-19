@@ -26,8 +26,7 @@
               <el-table-column width="123" prop="meetingTime" header-align="center" align="center" label="会议时间">
                 <template slot-scope="scope">{{scope.row.meetingTime | dateFormat("YYYY年M月D日 HH:mm:ss")}}</template>
               </el-table-column>
-              <el-table-column width="150" prop="meetingArranger" header-align="center" align="center" label="会议安排者账号"></el-table-column>
-              <el-table-column fixed="right" prop="meetingParticipant" header-align="center" align="center" label="会议参加者账号"></el-table-column>
+              <el-table-column fixed="right" width="150" prop="meetingArranger" header-align="center" align="center" label="会议安排者账号"></el-table-column>
             </el-table>
           </el-dialog>
         </div>
@@ -83,18 +82,12 @@
             <template slot-scope="scope">{{scope.row.meetingTime | dateFormat("YYYY年M月D日 HH:mm:ss")}}</template>
           </el-table-column>
           <el-table-column
+              fixed="right"
               prop="meetingArranger"
               header-align="center"
               align="center"
               width="150"
               label="会议安排者账号">
-          </el-table-column>
-          <el-table-column
-              fixed="right"
-              prop="meetingParticipant"
-              header-align="center"
-              align="center"
-              label="会议参加者账号">
           </el-table-column>
         </el-table>
       </div>
@@ -128,7 +121,8 @@ export default {
       dialogTableVisible:false,
       searchResult:[],
       loadingSearchResult:false,
-      searchTheme:''
+      searchTheme:'',
+      myAccount:''
     }
   },
   mounted() {
@@ -145,7 +139,8 @@ export default {
     },
     initCompanyMeetingInfo(){
       this.loading = true;
-      getRequest('/meeting/list?pageNum='+this.currentPage+'&pageSize='+this.pageSize).then(resp=>{
+      this.myAccount = window.sessionStorage.getItem('loginStaff');
+      getRequest('/meeting/queryMyMeeting?pageNum='+this.currentPage+'&pageSize='+this.pageSize+"&singleParticipant="+this.myAccount).then(resp=>{
         this.loading = false;
         if (resp) {
           this.companyMeetingInfo = resp.list;
@@ -156,7 +151,8 @@ export default {
     searchMeetingByTheme(){
       this.loadingSearchResult = true;
       this.searchResult = [];
-      getRequest('/meeting/search?meetingTheme='+this.searchTheme).then(resp=>{
+      this.myAccount = window.sessionStorage.getItem('loginStaff');
+      getRequest('/meeting/search?meetingTheme='+this.searchTheme+'&singleParticipant='+this.myAccount).then(resp=>{
         this.loadingSearchResult = false;
         this.dialogTableVisible = true;
         if (resp) {
