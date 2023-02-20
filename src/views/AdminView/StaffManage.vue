@@ -293,9 +293,14 @@
               </el-col>
             </el-row>
             <el-row :gutter="20">
-              <el-col :span="18">
-                <el-form-item label="家庭住址：" prop="staffAddress" size="medium">
-                  <el-input v-model="staffDetails.staffAddress" prefix-icon="el-icon-map-location" placeholder="请输入员工家庭住址"></el-input>
+              <el-col :span="6">
+                <el-form-item label="行政区划：" prop="staffRegion" size="medium">
+                  <el-cascader size="medium" :options="options" v-model="selectedOptions" @change="handleChange"></el-cascader>
+                </el-form-item>
+              </el-col>
+              <el-col :span="12">
+                <el-form-item label="详细地址：" prop="staffDetailAddress" size="medium">
+                  <el-input v-model="staffDetails.staffDetailAddress" prefix-icon="el-icon-map-location" placeholder="请输入员工详细地址"></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="6">
@@ -416,6 +421,7 @@ import {postRequest} from "@/utils/api";
 import {deleteRequest} from "@/utils/api";
 import {putRequest} from "@/utils/api";
 import md5 from 'js-md5';
+import { regionData, CodeToText } from "element-china-area-data";
 
 export default {
   name: "StaffManage",
@@ -443,6 +449,8 @@ export default {
         staffBirthday: '',
         staffAddress: '',
         staffStatus: '',
+        staffRegion:'',
+        staffDetailAddress:''
       },
       editStaffDetails:{
         staffAccount: '',
@@ -471,6 +479,8 @@ export default {
         ],
         staffGender:[{required:true,message:'员工性别不能为空',trigger:'blur'}],
         staffBirthday:[{required:true,message:'出生日期不能为空',trigger:'blur'}],
+        staffRegion:[{required:true,message:'行政区划不能为空',trigger:'blur'}],
+        staffDetailAddress:[{required:true,message:'详细地址不能为空',trigger:'blur'}],
         staffAddress:[{required:true,message:'家庭住址不能为空',trigger:'blur'}],
         staffStatus:[{required:true,message:'当前状态不能为空',trigger:'blur'}]
       },
@@ -500,6 +510,8 @@ export default {
         value: '主管',
         label: '主管'
       }],
+      options: regionData,
+      selectedOptions: []
     }
   },
   mounted() {
@@ -523,6 +535,7 @@ export default {
     showAddMenu(){
       this.addDialogVisible = true;
       this.$refs['addStaffForm'].resetFields();
+      this.selectedOptions = [];
     },
     deleteStaffSearch(data){
       this.$confirm('此操作将永久删除员工'+ data.staffTrueName +'，是否继续？','提示',{
@@ -580,6 +593,7 @@ export default {
         if (valid){
           let pwdMD5 = this.$md5(this.staffDetails.staffPassword);
           this.staffDetails.staffPassword = pwdMD5;
+          this.staffDetails.staffAddress = this.staffDetails.staffRegion + this.staffDetails.staffDetailAddress;
           postRequest('/staff',this.staffDetails).then(resp=>{
             if (resp) {
               this.addDialogVisible = false;
@@ -592,6 +606,7 @@ export default {
               this.getStaffNum();
               this.initStaffInfo();
               this.$refs['addStaffForm'].resetFields();
+              this.selectedOptions = [];
             }
           })
         }
@@ -668,6 +683,14 @@ export default {
       }else {
         return '男';
       }
+    },
+    handleChange() {
+      let loc = "";
+      for (let i = 0; i < this.selectedOptions.length; i++) {
+        loc += CodeToText[this.selectedOptions[i]];
+      }
+      console.log(loc);
+      this.staffDetails.staffRegion = loc;
     }
   }
 }
