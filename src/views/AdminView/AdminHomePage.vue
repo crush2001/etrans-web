@@ -3,10 +3,10 @@
     <div style="display:flex;">
       <div style="width: 48%">
         <div style="margin-top: 1px">
-          <h2>系统管理员账号{{ loginAdmin }}，欢迎您登录E-Trans协同办公系统！</h2>
+          <h2><i class="el-icon-success"></i> 系统管理员账号{{ loginAdmin }}，欢迎您登录E-Trans协同办公系统！</h2>
         </div>
         <div>
-          <h1>公司统计概览：</h1>
+          <h1><i class="el-icon-s-marketing"></i> 公司统计概览：</h1>
           <el-row :gutter="20">
             <el-col :span="8">
               <div><el-statistic :value="staffNum" title="员工总数"><template slot="prefix"><i class="el-icon-s-custom"></i></template></el-statistic></div>
@@ -32,17 +32,17 @@
           </el-row>
         </div>
         <div>
-          <h1>员工数据统计：</h1>
+          <h1><i class="el-icon-s-custom"></i> 员工数据统计：</h1>
           <div style="display: flex">
             <div style="margin-top: 5px;width: 50%">
-              <h4 style="text-align: center">员工职位统计</h4>
+              <h4 style="text-align: center"><i class="el-icon-data-analysis"></i> 员工职位统计</h4>
               <div id="staffPositionChart"
                    ref="staffPositionChart"
                    style="width: 450px;height: 400px;margin: 10px auto">
               </div>
             </div>
             <div style="margin-left: 30px;width: 50%">
-              <h4 style="text-align: center">员工状态统计</h4>
+              <h4 style="text-align: center"><i class="el-icon-pie-chart"></i> 员工状态统计</h4>
               <div id="staffStatusChart"
                    ref="staffStatusChart"
                    style="width: 450px;height: 400px;margin: 10px auto">
@@ -53,17 +53,17 @@
       </div>
       <div style="width: 48%">
         <div>
-          <h1>车辆与线路数据统计：</h1>
+          <h1><i class="el-icon-location"></i> 车辆与线路数据统计：</h1>
           <div style="display: flex">
             <div style="margin-top: 5px;width: 50%">
-              <h4 style="text-align: center">各线路车辆数</h4>
+              <h4 style="text-align: center"><i class="el-icon-document"></i> 各线路车辆数</h4>
               <el-table :data="vehicleGroupByRoute" border stripe height="270">
                 <el-table-column fixed prop="vehicleRoute" header-align="center" align="center" label="线路号"></el-table-column>
                 <el-table-column fixed="right" prop="totalNum" header-align="center" align="center" label="车辆数"></el-table-column>
               </el-table>
             </div>
             <div style="width:45%;margin-left: 30px">
-              <h4 style="text-align: center">车辆状态统计</h4>
+              <h4 style="text-align: center"><i class="el-icon-pie-chart"></i> 车辆状态统计</h4>
               <div id="vehicleStatusChart"
                    ref="vehicleStatusChart"
                    style="width: 450px;height: 270px;margin: 10px auto">
@@ -72,17 +72,17 @@
           </div>
         </div>
         <div>
-          <h1>工单申请数据统计：</h1>
+          <h1><i class="el-icon-s-order"></i> 工单申请数据统计：</h1>
           <div style="display: flex">
             <div style="margin-top: 5px;width: 50%">
-              <h4 style="text-align: center">工单申请类型统计</h4>
+              <h4 style="text-align: center"><i class="el-icon-data-analysis"></i> 工单申请类型统计</h4>
               <div id="workorderTypeChart"
                    ref="workorderTypeChart"
                    style="width: 450px;height: 270px;margin: 10px auto">
               </div>
             </div>
             <div style="margin-left: 30px;width: 50%">
-              <h4 style="text-align: center">工单申请状态统计</h4>
+              <h4 style="text-align: center"><i class="el-icon-pie-chart"></i> 工单申请状态统计</h4>
               <div id="workorderStatusChart"
                    ref="workorderStatusChart"
                    style="width: 450px;height: 270px;margin: 10px auto">

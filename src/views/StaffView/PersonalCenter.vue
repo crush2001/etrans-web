@@ -1,12 +1,12 @@
 <template>
   <div>
     <div>
-      <h2>员工账号{{ ownAccount }}，欢迎您登录E-Trans协同办公系统！</h2>
+      <h2><i class="el-icon-success"></i> 员工账号{{ ownAccount }}，欢迎您登录E-Trans协同办公系统！</h2>
     </div>
     <div style="display: flex">
       <el-card class="box-card" style="width:800px;margin-top: 15px">
         <div slot="header" class="clearfix" style="text-align: center">
-          <span>{{ loginStaffDetails.staffTrueName }}</span>
+          <span><i class="el-icon-s-custom"></i> {{ loginStaffDetails.staffTrueName }}</span>
         </div>
         <div>
           <div style="margin-bottom: 8px">
@@ -77,7 +77,7 @@
       </el-card>
       <div style="margin-left: 15px;width: 100%">
         <div>
-          <h1>我的车辆：</h1>
+          <h1><i class="el-icon-truck"></i> 我的车辆：</h1>
           <div>
             <el-table
                 :data="driverVehicleInfo"
@@ -146,7 +146,7 @@
           </div>
         </div>
         <div style="margin-top: 15px">
-          <h1>我的线路：</h1>
+          <h1><i class="el-icon-guide"></i> 我的线路：</h1>
           <div>
             <el-table
                 :data="driverRouteInfo"
@@ -204,7 +204,7 @@
           </div>
         </div>
         <div style="margin-top: 15px">
-          <h1>今日排班：</h1>
+          <h1><i class="el-icon-suitcase-1"></i> 今日排班：</h1>
           <div>
             <el-table
                 :data="driverScheduleInfo"

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div style="margin-top: 15px">
-      <h1>已完成班次：</h1>
+      <h1><i class="el-icon-document-checked"></i> 已完成班次：</h1>
       <el-table
           height="300"
           :data="myRecentScheduleData"
@@ -34,7 +34,7 @@
       </el-table>
     </div>
     <div style="margin-top: 15px">
-      <h1>今日及未来班次：</h1>
+      <h1><i class="el-icon-document-add"></i> 今日及未来班次：</h1>
       <el-table
           height="300"
           :data="myFutureScheduleData"

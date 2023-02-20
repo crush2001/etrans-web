@@ -4,8 +4,8 @@
       <el-header class="staffHomeHeader">
         <div class="title">E-Trans协同办公系统</div>
         <div class="loginStaffInfo">
-          {{ nowTime | updateTime }}
-          <span>企业员工：{{ loginStaff }}</span>
+          <i class="el-icon-date"></i> {{ nowTime | updateTime }} &nbsp;&nbsp;
+          <span><i class="el-icon-user"></i> 企业员工：{{ loginStaff }}</span>
           <el-dropdown trigger="hover" class="hoverMenu" @command="handleCommand">
             <span>
               <i class="el-icon-setting"></i>
