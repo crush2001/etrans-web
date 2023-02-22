@@ -208,7 +208,7 @@
         <el-button type="primary" @click="submitAdd">新 增</el-button>
       </span>
     </el-dialog>
-    <el-dialog title="编辑线路信息" :visible.sync="editDialogVisible" width="60%">
+    <el-dialog title="修改线路信息" :visible.sync="editDialogVisible" width="60%">
       <div>
         <el-form ref="editRouteForm" :model="editRouteDetails" :rules="rules">
           <el-row :gutter="20">

@@ -162,7 +162,7 @@
         </el-pagination>
       </div>
     </div>
-    <el-dialog title="新增班次信息" :visible.sync="addDialogVisible" width="60%">
+    <el-dialog title="新增车辆信息" :visible.sync="addDialogVisible" width="60%">
       <div>
         <el-form ref="addVehicleForm" :model="vehicleDetails" :rules="rules">
           <el-row :gutter="20">
@@ -227,7 +227,7 @@
         <el-button type="primary" @click="submitAdd">新 增</el-button>
       </span>
     </el-dialog>
-    <el-dialog title="修改班次信息" :visible.sync="editDialogVisible" width="60%">
+    <el-dialog title="修改车辆信息" :visible.sync="editDialogVisible" width="60%">
       <div>
         <el-form ref="editVehicleForm" :model="editVehicleDetails" :rules="rules">
           <el-row :gutter="20">
