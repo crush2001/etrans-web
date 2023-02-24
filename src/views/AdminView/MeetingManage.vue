@@ -472,7 +472,7 @@ export default {
     searchMeetingByTheme(){
       this.loadingSearchResult = true;
       this.searchResult = [];
-      getRequest('/meeting/search?meetingTheme='+this.searchTheme).then(resp=>{
+      getRequest('/meeting/queryByTheme?meetingTheme='+this.searchTheme).then(resp=>{
         this.loadingSearchResult = false;
         this.dialogTableVisible = true;
         if (resp) {
